@@ -37,7 +37,7 @@ class IntBST {
 	T info;
 	Node *left, *right, *parent;
 	// useful constructor:
-    Node(T t=0) : info(t), left(0), right(0), parent(0) { }
+    Node(T t) : info(t), left(0), right(0), parent(0) { }
     };
 
     // just one instance variable (pointer to root node):
