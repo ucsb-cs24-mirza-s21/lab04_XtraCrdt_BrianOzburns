@@ -335,26 +335,26 @@ typename IntBST<T>::Node* IntBST<T>::getSuccessorNode(T value) const{
             else if ( value > n->info ){ // search right subtree for value
                 n = n->right;
             }
-            else{ // value found, now find successor
-                if ( !n->parent && !n->right ){ // if node has no parent and no right subtree, then there is no successor
+            else{ // value found, now find predecessor
+                if ( !n->parent && !n->right ){ // if node has no parent and no left subtree, then there is no predecessor
                     return nullptr;
                 }
-                else if ( n->parent && !n->right ){ // else if node has no right subtree, but has a parent
-                    if ( n->parent->info > n->info ){ // check if parent is successor
+                else if ( n->parent && !n->right ){ // else if node has no left subtree, but has a parent
+                    if ( n->parent->info > n->info ){ // check if parent is predecessor
                         return n->parent;
                     }
-                    else if ( n->parent->info < n->info ){ // check if parent's parent is successor and so on until null
+                    else if ( n->parent->info < n->info ){ // check if parent's parent is predecessor and so on until null
                         n = n->parent;
                         while ( n->parent->parent ){
                             n = n->parent;
-                            if ( n->info > value ){ // return first parent whose info is greater than value
+                            if ( n->info > value ){ // return first parent whose info is less than value
                                 return n;
                             }
                         }
-                        if ( n->parent->info > value ){ // n->parent->parent is null so checking root if successor
+                        if ( n->parent->info > value ){ // n->parent->parent is null so checking root if predecessor
                             return n->parent;
                         }
-                        else { // no parent is successor, return nullptr
+                        else { // no parent is predecessor, return 0
                             return nullptr;
                         }
                     }
@@ -362,7 +362,7 @@ typename IntBST<T>::Node* IntBST<T>::getSuccessorNode(T value) const{
                         return nullptr;
                     }
                 }
-                else if ( n->right ){ // else right subtree exists, successor is the leftmost element of right subtree
+                else if ( n->right ){ // else left subtree exists, predecessor is the rightmost element of left subtree
                     n = n->right;
                     while ( n && n->left ){
                         n = n->left;
@@ -372,7 +372,7 @@ typename IntBST<T>::Node* IntBST<T>::getSuccessorNode(T value) const{
             }
         }
     }
-    return nullptr; 
+    return nullptr;
 }
 
 // returns the successor value of the given value or 0 if there is none
