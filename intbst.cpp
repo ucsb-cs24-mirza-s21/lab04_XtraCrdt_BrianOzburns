@@ -2,7 +2,7 @@
 // Implements class IntBST
 // Brian Ozawa Burns, 06/02/2021
 
-#include "intbst.h"
+#include <string>
 
 #include <iostream>
 using std::cout;
@@ -265,7 +265,7 @@ typename IntBST<T>::Node* IntBST<T>::getPredecessorNode(T value) const{
 
 // returns the predecessor value of the given value or 0 if there is none
 template<typename T>
-int IntBST<T>::getPredecessor(T value) const{
+T IntBST<T>::getPredecessor(T value) const{
     Node *n;
     n = root;
     if ( !n ){ // root doesn't exist, tree/subtree empty
@@ -377,7 +377,7 @@ typename IntBST<T>::Node* IntBST<T>::getSuccessorNode(T value) const{
 
 // returns the successor value of the given value or 0 if there is none
 template<typename T>
-int IntBST<T>::getSuccessor(T value) const{
+T IntBST<T>::getSuccessor(T value) const{
     Node *n;
     n = root;
     if ( !n ){ // root doesn't exist, tree/subtree empty

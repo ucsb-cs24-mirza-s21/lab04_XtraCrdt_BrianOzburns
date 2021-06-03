@@ -2,6 +2,7 @@
 // Tests intbst.cpp for CS 24 lab
 
 #include "intbst.cpp"
+#include <string>
 
 #include <iostream>
 using namespace std;
@@ -12,18 +13,27 @@ int getTest();
 // and does some simple tests of tree methods
 int main() {
 
-    IntBST<int> bst1, bst2;
+    IntBST<string> bst1, bst2;
 
     // insert data to bst1
-    bst1.insert(64);
-    bst1.insert(128);
-    bst1.insert(8);
-    bst1.insert(512);
-    bst1.insert(256);
-    bst1.insert(32);
-    bst1.insert(16);
-    bst1.insert(4);
+    bst1.insert("alpha");
+    bst1.insert("beta");
+    bst1.insert("alphaOmega");
+    bst1.insert("Omega");
+    bst1.insert("Zeta");
+    bst1.insert("32");
+    bst1.insert("Kappa");
+    bst1.insert("Kapp");
     
+    bst1.printInOrder();
+    cout << endl << endl;
+    bst1.printPostOrder();
+    cout << endl << endl;
+    bst1.printPreOrder();
+    cout << endl << endl;
+
+
+    /*
     // let user choose one or all tests
     bool all = true;
     int testnum = getTest();
@@ -124,7 +134,7 @@ int main() {
 
     // add tests for optional methods that you attempt to implement
     // but don't do that until after submitting the basic version
-
+    */
     return 0;
 }
 
